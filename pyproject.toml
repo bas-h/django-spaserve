@@ -1,0 +1,55 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "django-spaserve"
+version = "0.1.0"
+description = "Serve a built single-page-application (SPA) from Django with correct client-side-routing fallback — no nginx/Apache/CDN rewrite rules required."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Bassel J. Hamadeh", email = "bas@tigerlab.com" }]
+keywords = ["django", "spa", "frontend", "react", "vue", "svelte", "static", "single-page-application"]
+dependencies = ["Django>=4.2"]
+
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Framework :: Django :: 4.2",
+    "Framework :: Django :: 5.0",
+    "Framework :: Django :: 5.1",
+    "Framework :: Django :: 5.2",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet :: WWW/HTTP",
+    "Typing :: Typed",
+]
+
+[project.optional-dependencies]
+whitenoise = ["whitenoise>=6.0"]
+test = ["pytest", "pytest-django"]
+dev = ["pytest", "pytest-django", "ruff", "build", "twine"]
+
+[project.urls]
+Homepage = "https://github.com/bas-h/django-spaserve"
+Source = "https://github.com/bas-h/django-spaserve"
+Issues = "https://github.com/bas-h/django-spaserve/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/django_spaserve"]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.settings"
+python_files = ["test_*.py"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 88
+src = ["src", "tests"]

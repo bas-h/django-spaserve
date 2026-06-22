@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+
+# Build (anchored to repo root so example/frontend/dist stays committed)
+/build/
+/dist/
+*.whl
+
+# Node
+node_modules/
+
+# Tooling
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.tox/
+.venv/
+venv/
+uv.lock
