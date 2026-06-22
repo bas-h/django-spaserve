@@ -41,7 +41,9 @@ def test_validate_config_ok_for_complete_build(spa_dir):
 
 def test_system_check_flags_bad_settings_mount(tmp_path):
     missing = tmp_path / "nope"
-    with override_settings(DJANGO_SPASERVE=[{"prefix": "/", "directory": str(missing)}]):
+    with override_settings(
+        DJANGO_SPASERVE=[{"prefix": "/", "directory": str(missing)}]
+    ):
         errors = check_spa_configs(app_configs=None)
     assert errors
     assert errors[0].id.startswith("django_spaserve.E")
